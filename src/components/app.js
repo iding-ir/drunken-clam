@@ -19,13 +19,13 @@ class App extends Component {
   }
 
   render() {
-    const { tabs, changeTab } = this.props;
+    const { tabs, data, changeTab } = this.props;
 
     return (
       <div>
         <Header />
 
-        <Tabs tabs={tabs} changeTab={changeTab} />
+        <Tabs tabs={tabs} data={data} changeTab={changeTab} />
       </div>
     );
   }
@@ -33,6 +33,7 @@ class App extends Component {
 
 const mapStateToProps = (state) => ({
   tabs: state.tabs,
+  data: state.data,
 });
 
 const mapDispatchToProps = (dispatch) =>
