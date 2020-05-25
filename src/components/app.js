@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "bootswatch/dist/flatly/bootstrap.css";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
+import { Swipeable } from "react-swipeable";
 
 import "./app.scss";
 import Header from "./header";
@@ -33,23 +34,36 @@ class App extends Component {
     } = this.props;
 
     return (
-      <div>
-        <Header />
+      <Swipeable
+        onSwipedLeft={() => {
+          const newTab = tab + 1 >= tabs.length ? tab : tab + 1;
 
-        <Tabs
-          currentTab={tab}
-          data={data}
-          changeTab={changeTab}
-          openModal={openModal}
-          selectBeer={selectBeer}
-        />
+          changeTab(newTab);
+        }}
+        onSwipedRight={() => {
+          const newTab = tab - 1 >= 0 ? tab - 1 : tab;
 
-        <Modal
-          visible={modal.visible}
-          item={modal.item}
-          closeModal={closeModal}
-        />
-      </div>
+          changeTab(newTab);
+        }}
+      >
+        <div className="app">
+          <Header />
+
+          <Tabs
+            currentTab={tab}
+            data={data}
+            changeTab={changeTab}
+            openModal={openModal}
+            selectBeer={selectBeer}
+          />
+
+          <Modal
+            visible={modal.visible}
+            item={modal.item}
+            closeModal={closeModal}
+          />
+        </div>
+      </Swipeable>
     );
   }
 }
