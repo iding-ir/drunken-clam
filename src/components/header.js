@@ -1,14 +1,13 @@
 import React from "react";
+import { Navbar } from "react-bootstrap";
 
 import "./header.scss";
 
 const Header = () => {
   return (
-    <nav className="navbar navbar-light bg-light">
-      <a className="navbar-brand" href="#">
-        Beer!
-      </a>
-    </nav>
+    <Navbar bg="primary" variant="dark" expand="lg">
+      <Navbar.Brand href="#">Beer!</Navbar.Brand>
+    </Navbar>
   );
 };
 

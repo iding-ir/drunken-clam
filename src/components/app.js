@@ -6,8 +6,10 @@ import { bindActionCreators } from "redux";
 import "./app.scss";
 import Header from "./header";
 import Tabs from "./tabs";
+import Modal from "./modal";
 import { fetchData } from "../actions/data";
 import { changeTab } from "../actions/tab";
+import { openModal, closeModal } from "../actions/modal";
 import tabs from "../config/tabs";
 
 class App extends Component {
@@ -20,13 +22,15 @@ class App extends Component {
   }
 
   render() {
-    const { tab, data, changeTab } = this.props;
+    const { tab, data, modal, changeTab } = this.props;
 
     return (
       <div>
         <Header />
 
-        <Tabs tab={tab} data={data} changeTab={changeTab} />
+        <Tabs currentTab={tab} data={data} changeTab={changeTab} />
+
+        <Modal visible={modal} />
       </div>
     );
   }
@@ -35,6 +39,7 @@ class App extends Component {
 const mapStateToProps = (state) => ({
   tab: state.tab,
   data: state.data,
+  modal: state.modal,
 });
 
 const mapDispatchToProps = (dispatch) =>
@@ -42,6 +47,8 @@ const mapDispatchToProps = (dispatch) =>
     {
       fetchData,
       changeTab,
+      openModal,
+      closeModal,
     },
     dispatch
   );

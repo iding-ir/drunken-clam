@@ -5,9 +5,9 @@ import "./tabs.scss";
 import tabs from "../config/tabs";
 
 const Navigation = (props) => {
-  const { tab, data, changeTab } = props;
+  const { currentTab, data, changeTab } = props;
 
-  const beers = data[tab] || [];
+  const beers = data[currentTab] || [];
 
   return (
     <>
@@ -16,7 +16,7 @@ const Navigation = (props) => {
           const { display } = tab;
 
           const tabClasses = classnames("", {
-            active: tab === index,
+            active: currentTab === index,
           });
 
           return (
@@ -34,13 +34,13 @@ const Navigation = (props) => {
       </ul>
 
       <ul className="beers">
-        {beers.map((beer) => {
+        {beers.map((beer, index) => {
           const { name, image_url } = beer;
 
           const backgroundImage = `url("${image_url}")`;
 
           return (
-            <li>
+            <li key={index}>
               <div className="image" style={{ backgroundImage }}></div>
 
               <div className="name">{name}</div>
