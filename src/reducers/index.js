@@ -1,10 +1,10 @@
 import { combineReducers } from "redux";
 
-import tabsReducer from "./tabs";
+import tabsReducer from "./tab";
 import dataReducer from "./data";
 
 const combinedReducers = combineReducers({
-  tabs: tabsReducer,
+  tab: tabsReducer,
   data: dataReducer,
 });
 

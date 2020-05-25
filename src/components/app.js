@@ -7,33 +7,33 @@ import "./app.scss";
 import Header from "./header";
 import Tabs from "./tabs";
 import { fetchData } from "../actions/data";
-import { changeTab } from "../actions/tabs";
-import tabsConfig from "../config/tabs";
+import { changeTab } from "../actions/tab";
+import tabs from "../config/tabs";
 
 class App extends Component {
   componentDidMount() {
     const { fetchData } = this.props;
 
-    tabsConfig.forEach((tab) => {
+    tabs.forEach((tab) => {
       fetchData(tab.query);
     });
   }
 
   render() {
-    const { tabs, data, changeTab } = this.props;
+    const { tab, data, changeTab } = this.props;
 
     return (
       <div>
         <Header />
 
-        <Tabs tabs={tabs} data={data} changeTab={changeTab} />
+        <Tabs tab={tab} data={data} changeTab={changeTab} />
       </div>
     );
   }
 }
 
 const mapStateToProps = (state) => ({
-  tabs: state.tabs,
+  tab: state.tab,
   data: state.data,
 });
 

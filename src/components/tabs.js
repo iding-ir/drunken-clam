@@ -2,21 +2,21 @@ import React from "react";
 import * as classnames from "classnames";
 
 import "./tabs.scss";
-import tabsConfig from "../config/tabs";
+import tabs from "../config/tabs";
 
 const Navigation = (props) => {
-  const { tabs, data, changeTab } = props;
+  const { tab, data, changeTab } = props;
 
-  const beers = data[tabs.current] || [];
+  const beers = data[tab] || [];
 
   return (
     <>
       <ul className="nav nav-tabs">
-        {tabsConfig.map((tab, index) => {
+        {tabs.map((tab, index) => {
           const { display } = tab;
 
           const tabClasses = classnames("", {
-            active: tabs.current === index,
+            active: tab === index,
           });
 
           return (
