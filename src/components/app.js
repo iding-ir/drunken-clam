@@ -5,9 +5,19 @@ import { bindActionCreators } from "redux";
 
 import Header from "./header";
 import Tabs from "./tabs";
+import { fetchData } from "../actions/data";
 import { changeTab } from "../actions/tabs";
+import tabsConfig from "../config/tabs";
 
 class App extends Component {
+  componentDidMount() {
+    const { fetchData } = this.props;
+
+    tabsConfig.forEach((tab) => {
+      fetchData(tab.query);
+    });
+  }
+
   render() {
     const { tabs, changeTab } = this.props;
 
@@ -20,6 +30,7 @@ class App extends Component {
     );
   }
 }
+
 const mapStateToProps = (state) => ({
   tabs: state.tabs,
 });
@@ -27,6 +38,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) =>
   bindActionCreators(
     {
+      fetchData,
       changeTab,
     },
     dispatch

@@ -8,7 +8,7 @@ const Navigation = (props) => {
   const { tabs, changeTab } = props;
 
   return (
-    <ul class="nav nav-tabs">
+    <ul className="nav nav-tabs">
       {tabsConfig.map((tab, index) => {
         const { display } = tab;
 
@@ -18,6 +18,7 @@ const Navigation = (props) => {
 
         return (
           <li
+            key={index}
             className={tabClasses}
             onClick={() => {
               changeTab(index);
