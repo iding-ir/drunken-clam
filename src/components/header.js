@@ -1,5 +1,7 @@
 import React from "react";
 
+import "./header.scss";
+
 const Header = () => {
   return (
     <nav className="navbar navbar-light bg-light">

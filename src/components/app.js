@@ -3,6 +3,7 @@ import "bootswatch/dist/flatly/bootstrap.css";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
+import "./app.scss";
 import Header from "./header";
 import Tabs from "./tabs";
 import { fetchData } from "../actions/data";

@@ -1,7 +1,7 @@
 import React from "react";
 import * as classnames from "classnames";
 
-import "./tabs.css";
+import "./tabs.scss";
 import tabsConfig from "../config/tabs";
 
 const Navigation = (props) => {
