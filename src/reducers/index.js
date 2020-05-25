@@ -1,7 +1,9 @@
 import { combineReducers } from "redux";
 
+import tabsReducer from "./tabs";
+
 const combinedReducers = combineReducers({
-  placeholder: "placeholder",
+  tabs: tabsReducer,
 });
 
 export default combinedReducers;
