@@ -5,7 +5,7 @@ import "./tabs.scss";
 import tabs from "../config/tabs";
 
 const Navigation = (props) => {
-  const { currentTab, data, changeTab } = props;
+  const { currentTab, data, changeTab, openModal, selectBeer } = props;
 
   const beers = data[currentTab] || [];
 
@@ -39,8 +39,14 @@ const Navigation = (props) => {
 
           const backgroundImage = `url("${image_url}")`;
 
+          const onClick = (beer) => {
+            selectBeer(beer);
+
+            openModal();
+          };
+
           return (
-            <li key={index}>
+            <li key={index} onClick={() => onClick(beer)}>
               <div className="image" style={{ backgroundImage }}></div>
 
               <div className="name">{name}</div>

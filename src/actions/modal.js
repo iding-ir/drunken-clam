@@ -1,4 +1,4 @@
-import { OPEN_MODAL, CLOSE_MODAL } from "../constants";
+import { OPEN_MODAL, CLOSE_MODAL, SELECT_BEER } from "../constants";
 
 export const openModal = () => {
   return {
@@ -9,5 +9,12 @@ export const openModal = () => {
 export const closeModal = () => {
   return {
     type: CLOSE_MODAL,
+  };
+};
+
+export const selectBeer = (beer) => {
+  return {
+    type: SELECT_BEER,
+    payload: beer,
   };
 };

@@ -16,12 +16,8 @@ class Modal extends Component {
         <BootstrapModal.Body></BootstrapModal.Body>
 
         <BootstrapModal.Footer>
-          <Button variant="secondary" onClick={closeModal}>
-            Close
-          </Button>
-
           <Button variant="success" onClick={alert}>
-            Add
+            Add to cart
           </Button>
         </BootstrapModal.Footer>
       </BootstrapModal>

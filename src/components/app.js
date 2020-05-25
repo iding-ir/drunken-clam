@@ -9,7 +9,7 @@ import Tabs from "./tabs";
 import Modal from "./modal";
 import { fetchData } from "../actions/data";
 import { changeTab } from "../actions/tab";
-import { openModal, closeModal } from "../actions/modal";
+import { openModal, closeModal, selectBeer } from "../actions/modal";
 import tabs from "../config/tabs";
 
 class App extends Component {
@@ -22,15 +22,33 @@ class App extends Component {
   }
 
   render() {
-    const { tab, data, modal, changeTab } = this.props;
+    const {
+      tab,
+      data,
+      modal,
+      changeTab,
+      openModal,
+      closeModal,
+      selectBeer,
+    } = this.props;
 
     return (
       <div>
         <Header />
 
-        <Tabs currentTab={tab} data={data} changeTab={changeTab} />
+        <Tabs
+          currentTab={tab}
+          data={data}
+          changeTab={changeTab}
+          openModal={openModal}
+          selectBeer={selectBeer}
+        />
 
-        <Modal visible={modal} />
+        <Modal
+          visible={modal.visible}
+          item={modal.item}
+          closeModal={closeModal}
+        />
       </div>
     );
   }
@@ -49,6 +67,7 @@ const mapDispatchToProps = (dispatch) =>
       changeTab,
       openModal,
       closeModal,
+      selectBeer,
     },
     dispatch
   );
