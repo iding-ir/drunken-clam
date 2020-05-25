@@ -9,6 +9,8 @@
 }
 
 .beers {
+  flex-grow: 10;
+  overflow: auto;
   display: grid;
   grid-gap: 0;
   grid-template-columns: repeat(3, 1fr);

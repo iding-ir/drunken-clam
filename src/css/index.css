@@ -1,0 +1,15 @@
+@charset "utf-8";
+
+html *,
+html *::after,
+html *::before {
+  box-sizing: border-box;
+  user-select: none;
+}
+
+html,
+body,
+#root,
+#root > div {
+  height: 100%;
+}

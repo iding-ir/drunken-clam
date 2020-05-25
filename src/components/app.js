@@ -8,6 +8,7 @@ import "./app.scss";
 import Header from "./header";
 import Tabs from "./tabs";
 import Modal from "./modal";
+import Cart from "./cart";
 import { fetchData } from "../actions/data";
 import { changeTab } from "../actions/tab";
 import { openModal, closeModal, selectBeer } from "../actions/modal";
@@ -62,6 +63,8 @@ class App extends Component {
             item={modal.item}
             closeModal={closeModal}
           />
+
+          <Cart />
         </div>
       </Swipeable>
     );
