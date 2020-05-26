@@ -13,6 +13,10 @@ const Cart = (props) => {
 
   const cartItems = Object.values(cart.items);
 
+  const onClick = (event) => {
+    event.stopPropagation();
+  };
+
   const renderCartItems = () => {
     if (!cartItems.length) {
       return "Cart is empty";
@@ -52,7 +56,7 @@ const Cart = (props) => {
   };
 
   return (
-    <div className={cartClasses}>
+    <div className={cartClasses} onClick={onClick}>
       <Swipeable
         onSwipedUp={() => {
           openCart();
