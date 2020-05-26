@@ -5,9 +5,24 @@ import "./tabs.scss";
 import tabs from "../config/tabs";
 
 const Navigation = (props) => {
-  const { currentTab, data, changeTab, openModal, selectBeer } = props;
+  const {
+    currentTab,
+    pages,
+    data,
+    fetchData,
+    changeTab,
+    openModal,
+    selectBeer,
+    addPage,
+  } = props;
 
   const beers = data[currentTab] || [];
+
+  const onClick = () => {
+    addPage(currentTab);
+
+    fetchData(currentTab, pages[currentTab] + 1, tabs[currentTab].query);
+  };
 
   return (
     <>
@@ -33,27 +48,31 @@ const Navigation = (props) => {
         })}
       </ul>
 
-      <ul className="beers">
-        {beers.map((beer, index) => {
-          const { name, image_url } = beer;
+      <div className="beers">
+        <ul>
+          {beers.map((beer, index) => {
+            const { name, image_url } = beer;
 
-          const backgroundImage = `url("${image_url}")`;
+            const backgroundImage = `url("${image_url}")`;
 
-          const onClick = (beer) => {
-            selectBeer(beer);
+            const onClick = (beer) => {
+              selectBeer(beer);
 
-            openModal();
-          };
+              openModal();
+            };
 
-          return (
-            <li key={index} onClick={() => onClick(beer)}>
-              <div className="image" style={{ backgroundImage }}></div>
+            return (
+              <li key={index} onClick={() => onClick(beer)}>
+                <div className="image" style={{ backgroundImage }}></div>
 
-              <div className="name">{name}</div>
-            </li>
-          );
-        })}
-      </ul>
+                <div className="name">{name}</div>
+              </li>
+            );
+          })}
+        </ul>
+
+        <div className="more" onClick={onClick}>LOAD PAGE</div>
+      </div>
     </>
   );
 };

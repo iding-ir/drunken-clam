@@ -18,14 +18,17 @@ import {
   addToCart,
   removeFromCart,
 } from "../actions/cart";
+import { addPage } from "../actions/pages";
 import tabs from "../config/tabs";
 
 class App extends Component {
   componentDidMount() {
-    const { fetchData } = this.props;
+    const { fetchData, addPage } = this.props;
 
-    tabs.forEach((tab) => {
-      fetchData(tab.query);
+    tabs.forEach((tab, index) => {
+      fetchData(index, 1, tab.query);
+
+      addPage(index);
     });
   }
 
@@ -33,8 +36,10 @@ class App extends Component {
     const {
       tab,
       data,
+      pages,
       modal,
       cart,
+      fetchData,
       changeTab,
       openModal,
       closeModal,
@@ -43,6 +48,7 @@ class App extends Component {
       closeCart,
       addToCart,
       removeFromCart,
+      addPage,
     } = this.props;
 
     return (
@@ -64,9 +70,12 @@ class App extends Component {
           <Tabs
             currentTab={tab}
             data={data}
+            pages={pages}
+            fetchData={fetchData}
             changeTab={changeTab}
             openModal={openModal}
             selectBeer={selectBeer}
+            addPage={addPage}
           />
 
           <Modal
@@ -95,12 +104,14 @@ const mapStateToProps = (state) => ({
   data: state.data,
   modal: state.modal,
   cart: state.cart,
+  pages: state.pages,
 });
 
 const mapDispatchToProps = (dispatch) =>
   bindActionCreators(
     {
       fetchData,
+      addPage,
       changeTab,
       openModal,
       closeModal,
