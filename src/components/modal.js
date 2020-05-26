@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import { Button, Modal as BootstrapModal } from "react-bootstrap";
 
+import "./modal.scss";
+
 class Modal extends Component {
   render() {
     const { item, visible, closeModal, addToCart, openCart } = this.props;
 
-    const { name, tagline, description } = item;
+    const { name, abv, tagline, image_url, description } = item;
 
     const onClick = () => {
       addToCart(item);
@@ -24,7 +26,13 @@ class Modal extends Component {
         <BootstrapModal.Body>
           <h5>{tagline}</h5>
 
-          <div>{description}</div>
+          <h6>ABV: {abv}</h6>
+
+          <div className="description">
+            <img src={image_url} alt={name}></img>
+
+            {description}
+          </div>
         </BootstrapModal.Body>
 
         <BootstrapModal.Footer>

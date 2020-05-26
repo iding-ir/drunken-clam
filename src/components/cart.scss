@@ -4,12 +4,16 @@
   right: 1rem;
   bottom: 0;
   max-height: 50%;
-
   border-radius: 1rem 1rem 0 0;
   background-color: white;
   border: 1px solid silver;
   border-bottom: none;
   transform: translateY(calc(100% - 2rem));
+  background-image: url(../assets/images/icon-handle-v.svg);
+  background-repeat: no-repeat;
+  background-position: top 0.5rem center;
+  background-size: 1rem;
+  transition: all 0.3s ease;
 
   &.open {
     transform: translateY(0);
@@ -23,7 +27,9 @@
     .item {
       display: flex;
       flex-direction: row;
+      padding-bottom: 1rem;
       margin-bottom: 1rem;
+      border-bottom: 1px solid silver;
 
       .image {
         width: 4rem;
