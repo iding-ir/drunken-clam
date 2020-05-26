@@ -3,6 +3,8 @@
   left: 1rem;
   right: 1rem;
   bottom: 0;
+  max-height: 50%;
+
   border-radius: 1rem 1rem 0 0;
   background-color: white;
   border: 1px solid silver;
@@ -17,5 +19,53 @@
     height: 100%;
     padding: 1rem;
     padding-top: 2rem;
+
+    .item {
+      display: flex;
+      flex-direction: row;
+      margin-bottom: 1rem;
+
+      .image {
+        width: 4rem;
+        height: 4rem;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: auto 3.5rem;
+      }
+
+      .name {
+        flex-grow: 10;
+        max-width: 12rem;
+
+        h5 {
+          font-size: 1rem;
+        }
+
+        h6 {
+          font-size: 0.8rem;
+        }
+      }
+
+      .controls {
+        display: flex;
+        flex-direction: row;
+        height: 2rem;
+        border: 1px solid silver;
+        border-radius: 1rem;
+
+        .add,
+        .remove,
+        .count {
+          line-height: 2rem;
+          width: 2rem;
+          text-align: center;
+        }
+
+        .count {
+          border-left: 1px solid silver;
+          border-right: 1px solid silver;
+        }
+      }
+    }
   }
 }

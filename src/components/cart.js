@@ -24,13 +24,30 @@ const Cart = (props) => {
         {Object.values(cart.items).map((it, index) => {
           const { item, count } = it;
 
-          const { id, name } = item;
-          console.log(id);
+          const { name, tagline, image_url } = item;
+
+          const backgroundImage = `url("${image_url}")`;
 
           return (
-            <div key={index}>
-              {name} x {count}(<span onClick={() => addToCart(item)}>Add</span>|
-              <span onClick={() => removeFromCart(item)}>Remove</span>)
+            <div className="item" key={index}>
+              <div className="image" style={{ backgroundImage }}></div>
+
+              <div className="name">
+                <h5>{name}</h5>
+                <h6>{tagline}</h6>
+              </div>
+
+              <div className="controls">
+                <div className="add" onClick={() => addToCart(item)}>
+                  +
+                </div>
+
+                <div className="count"> {count}</div>
+
+                <div className="remove" onClick={() => removeFromCart(item)}>
+                  -
+                </div>
+              </div>
             </div>
           );
         })}
