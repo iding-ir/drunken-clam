@@ -64,7 +64,7 @@ class App extends Component {
           changeTab(newTab);
         }}
       >
-        <div className="app">
+        <div className="app" onClick={() => closeCart()}>
           <Header />
 
           <Tabs

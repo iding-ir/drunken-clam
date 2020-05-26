@@ -9,7 +9,9 @@ class Modal extends Component {
 
     const { name, abv, tagline, image_url, description } = item;
 
-    const onClick = () => {
+    const onClick = (event) => {
+      event.stopPropagation();
+
       addToCart(item);
 
       closeModal();

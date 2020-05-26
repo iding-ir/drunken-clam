@@ -71,7 +71,9 @@ const Navigation = (props) => {
           })}
         </ul>
 
-        <div className="more" onClick={onClick}>LOAD PAGE</div>
+        <div className="more" onClick={onClick}>
+          Load more...
+        </div>
       </div>
     </>
   );
