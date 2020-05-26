@@ -21,10 +21,16 @@ const Cart = (props) => {
           closeCart();
         }}
       >
-        {cart.items.map((item, index) => {
+        {Object.values(cart.items).map((it, index) => {
+          const { item, count } = it;
+
           const { name } = item;
 
-          return <div key={index}>{name}</div>;
+          return (
+            <div key={index}>
+              {name} x {count}
+            </div>
+          );
         })}
       </Swipeable>
     </div>

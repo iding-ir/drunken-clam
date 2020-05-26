@@ -3,9 +3,17 @@ import { Button, Modal as BootstrapModal } from "react-bootstrap";
 
 class Modal extends Component {
   render() {
-    const { item, visible, closeModal, addToCart } = this.props;
+    const { item, visible, closeModal, addToCart, openCart } = this.props;
 
     const { name, tagline, description } = item;
+
+    const onClick = () => {
+      addToCart(item);
+
+      closeModal();
+
+      openCart();
+    };
 
     return (
       <BootstrapModal show={visible} onHide={closeModal}>
@@ -20,7 +28,7 @@ class Modal extends Component {
         </BootstrapModal.Body>
 
         <BootstrapModal.Footer>
-          <Button variant="success" onClick={() => addToCart(item)}>
+          <Button variant="success" onClick={onClick}>
             Add to cart
           </Button>
         </BootstrapModal.Footer>

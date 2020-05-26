@@ -1,14 +1,14 @@
 export default [
   {
     display: "All",
-    query: "",
+    query: "?page=1&per_page=80",
   },
   {
     display: "Pizza",
-    query: "?food=pizza",
+    query: "?page=1&per_page=80&food=pizza",
   },
   {
     display: "Steak",
-    query: "?food=steak",
+    query: "?page=1&per_page=80&food=steak",
   },
 ];

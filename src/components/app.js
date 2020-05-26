@@ -68,6 +68,7 @@ class App extends Component {
             item={modal.item}
             closeModal={closeModal}
             addToCart={addToCart}
+            openCart={openCart}
           />
 
           <Cart cart={cart} openCart={openCart} closeCart={closeCart} />
