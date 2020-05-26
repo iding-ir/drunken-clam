@@ -1,4 +1,4 @@
-import { OPEN_CART, CLOSE_CART } from "../constants";
+import { OPEN_CART, CLOSE_CART, ADD_TO_CART } from "../constants";
 
 export const openCart = () => {
   return {
@@ -9,5 +9,12 @@ export const openCart = () => {
 export const closeCart = () => {
   return {
     type: CLOSE_CART,
+  };
+};
+
+export const addToCart = (item) => {
+  return {
+    type: ADD_TO_CART,
+    payload: item,
   };
 };

@@ -12,7 +12,7 @@ import Cart from "./cart";
 import { fetchData } from "../actions/data";
 import { changeTab } from "../actions/tab";
 import { openModal, closeModal, selectBeer } from "../actions/modal";
-import { openCart, closeCart } from "../actions/cart";
+import { openCart, closeCart, addToCart } from "../actions/cart";
 import tabs from "../config/tabs";
 
 class App extends Component {
@@ -36,6 +36,7 @@ class App extends Component {
       selectBeer,
       openCart,
       closeCart,
+      addToCart,
     } = this.props;
 
     return (
@@ -66,6 +67,7 @@ class App extends Component {
             visible={modal.visible}
             item={modal.item}
             closeModal={closeModal}
+            addToCart={addToCart}
           />
 
           <Cart cart={cart} openCart={openCart} closeCart={closeCart} />
@@ -92,6 +94,7 @@ const mapDispatchToProps = (dispatch) =>
       selectBeer,
       openCart,
       closeCart,
+      addToCart,
     },
     dispatch
   );
