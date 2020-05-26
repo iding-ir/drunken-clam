@@ -5,7 +5,7 @@ import * as classnames from "classnames";
 import "./cart.scss";
 
 const Cart = (props) => {
-  const { cart, openCart, closeCart } = props;
+  const { cart, openCart, closeCart, addToCart, removeFromCart } = props;
 
   const cartClasses = classnames("cart", {
     open: cart.visible,
@@ -24,11 +24,13 @@ const Cart = (props) => {
         {Object.values(cart.items).map((it, index) => {
           const { item, count } = it;
 
-          const { name } = item;
+          const { id, name } = item;
+          console.log(id);
 
           return (
             <div key={index}>
-              {name} x {count}
+              {name} x {count}(<span onClick={() => addToCart(item)}>Add</span>|
+              <span onClick={() => removeFromCart(item)}>Remove</span>)
             </div>
           );
         })}

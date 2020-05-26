@@ -12,7 +12,12 @@ import Cart from "./cart";
 import { fetchData } from "../actions/data";
 import { changeTab } from "../actions/tab";
 import { openModal, closeModal, selectBeer } from "../actions/modal";
-import { openCart, closeCart, addToCart } from "../actions/cart";
+import {
+  openCart,
+  closeCart,
+  addToCart,
+  removeFromCart,
+} from "../actions/cart";
 import tabs from "../config/tabs";
 
 class App extends Component {
@@ -37,6 +42,7 @@ class App extends Component {
       openCart,
       closeCart,
       addToCart,
+      removeFromCart,
     } = this.props;
 
     return (
@@ -71,7 +77,13 @@ class App extends Component {
             openCart={openCart}
           />
 
-          <Cart cart={cart} openCart={openCart} closeCart={closeCart} />
+          <Cart
+            cart={cart}
+            openCart={openCart}
+            closeCart={closeCart}
+            addToCart={addToCart}
+            removeFromCart={removeFromCart}
+          />
         </div>
       </Swipeable>
     );
@@ -96,6 +108,7 @@ const mapDispatchToProps = (dispatch) =>
       openCart,
       closeCart,
       addToCart,
+      removeFromCart,
     },
     dispatch
   );
