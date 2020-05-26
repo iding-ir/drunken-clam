@@ -5,7 +5,7 @@
 
 ## Intro
 
-This project was created Yoello using React, Redux and Bootstrap to demonstrate my front-end skills.
+This project was created for Yoello using React, Redux and Bootstrap to demonstrate my front-end skills.
 
 ## Demo
 
